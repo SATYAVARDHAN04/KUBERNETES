@@ -34,3 +34,7 @@ sudo mv kubectl /usr/local/bin/kubectl
 eksctl version
 kubectl version
 ```
+
+## RESOURCES DISCUSSED IN THIS REPO
+1. NAMESPACE
+2. PODS
