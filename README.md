@@ -1,1 +1,36 @@
 # KUBERNETES
+
+## STEP 1: CONFIGURE AWS CLI
+## STEP 2: INSTALL EKSCTL FOR K8S CLUSTER CREATION
+
+```bash
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+ARCH=amd64
+PLATFORM=$(uname -s)_$ARCH
+
+curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+
+# (Optional) Verify checksum
+curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+
+tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+
+sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
+```
+## STEP 3: INSTALL KUBECTL FOR K8S CLUSTER INTERACTION
+
+```bash
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.3/2025-08-03/bin/linux/amd64/kubectl
+```
+```bash
+chmod +x ./kubectl
+```
+```bash
+sudo mv kubectl /usr/local/bin/kubectl
+```
+
+## STEP 4: CHECK WHETHER INSTALLED PROPERLY
+```bash
+eksctl version
+kubectl version
+```
