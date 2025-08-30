@@ -42,10 +42,12 @@ kubectl version
 ```bash
 eksctl create cluster --config-file=eks.yaml
 ```
+```bash
+eksctl delet cluster --config-file=eks.yaml
+```
 
-## SOME IMPORTANT KUBERNETES COMMANDS
+## SHOW WORKER NODES IN A WORKSTATION
 
-### SHOW WORKER NODES IN A WORKSTATION
 ```bash
 kubectl get nodes
 ```
@@ -55,7 +57,33 @@ kubectl get nodes
 ### NAMESPACE
 
 Creation of namespace 
+```bash
+kubectl apply -f namespace.yaml
+```
 
+Cheking of namespace created 
+```bash
+kubectl get namespace
+```
 
+Deletion of namespace 
+```bash
+kubectl delete -f namespace.yaml
+```
 
-2. PODS
+### PODS
+
+Creation of PODS
+```bash
+kubectl apply -f pod.yaml
+```
+
+Cheking of namespace created 
+```bash
+kubectl get pods
+```
+
+Deletion of namespace 
+```bash
+kubectl delete -f pod.yaml
+```
