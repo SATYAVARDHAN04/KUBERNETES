@@ -49,18 +49,13 @@ eksctl create cluster --config-file=eks.yaml
 ```bash
 kubectl get nodes
 ```
-### SHOW WORKER NODES IN A WORKSTATION
-```bash
-kubectl get nodes
-```
-### SHOW WORKER NODES IN A WORKSTATION
-```bash
-kubectl get nodes
-```
-
-
-
 
 ## RESOURCES DISCUSSED IN THIS REPO
-1. NAMESPACE
+
+### NAMESPACE
+
+Creation of namespace 
+
+
+
 2. PODS
