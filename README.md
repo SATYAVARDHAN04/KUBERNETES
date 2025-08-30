@@ -36,6 +36,12 @@ sudo mv kubectl /usr/local/bin/kubectl
 eksctl version
 kubectl version
 ```
+## STEP 5: NOW WE WILL CREATE A MANAGED NODE GROUP or IN SHORT A CLUSTER WITH A MASTER AND WORKER NODES
+
+*NOTE: A MANAGED NODE GROUP IS THE SET OF AWS WORKER NODES(INSTANCES) THAT AWS WILL CREATE AND MANAGE ON ITS OWN*
+```bash
+eksctl create cluster --config-file=eks.yaml
+```
 
 ## RESOURCES DISCUSSED IN THIS REPO
 1. NAMESPACE
