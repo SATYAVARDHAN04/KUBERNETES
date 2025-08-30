@@ -43,6 +43,24 @@ kubectl version
 eksctl create cluster --config-file=eks.yaml
 ```
 
+## SOME IMPORTANT KUBERNETES COMMANDS
+
+### SHOW WORKER NODES IN A WORKSTATION
+```bash
+kubectl get nodes
+```
+### SHOW WORKER NODES IN A WORKSTATION
+```bash
+kubectl get nodes
+```
+### SHOW WORKER NODES IN A WORKSTATION
+```bash
+kubectl get nodes
+```
+
+
+
+
 ## RESOURCES DISCUSSED IN THIS REPO
 1. NAMESPACE
 2. PODS
