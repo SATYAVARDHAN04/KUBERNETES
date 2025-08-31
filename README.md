@@ -78,12 +78,27 @@ Creation of PODS
 kubectl apply -f pod.yaml
 ```
 
-Cheking of namespace created 
+Cheking of pods created 
 ```bash
 kubectl get pods
 ```
 
-Deletion of namespace 
+Deletion of pods 
 ```bash
 kubectl delete -f pod.yaml
+```
+
+To Know the logs of a pod
+```bash
+kubectl describe pod <podname>
+```
+
+To login into any pod 
+```bash
+kubectl exec -it <pod_name> -- bash
+```
+
+To login into a container of a pod having multiple containers
+```bash
+kubectl exec -it <pod_name> -c <container_name> -- bash
 ```
