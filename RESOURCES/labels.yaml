@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: labels
+metadata:
+  name: roboshop
+  labels:
+    project: satya
+    component: dev
+
+spec:
+  containers:
+    - name: nginx
+      image: nginx
