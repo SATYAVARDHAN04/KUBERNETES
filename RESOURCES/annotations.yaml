@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "MYAPP"
+  namespace: default
+  labels:
+    app: "MYAPP"
+  annotation:
+    project-name:new_project
+spec:
+  containers:
+  - name: newnginx
+    image: nginx
