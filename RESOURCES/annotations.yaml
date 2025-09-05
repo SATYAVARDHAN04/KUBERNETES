@@ -5,8 +5,8 @@ metadata:
   namespace: default
   labels:
     app: "MYAPP"
-  annotation:
-    project-name:new_project
+  annotations:
+    project-name: new_project
 spec:
   containers:
   - name: newnginx
