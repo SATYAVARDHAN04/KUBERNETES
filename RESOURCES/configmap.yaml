@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pod-configuration
+  name: roboshop_configmap
   labels:
     purpose: pod-configuration
 
