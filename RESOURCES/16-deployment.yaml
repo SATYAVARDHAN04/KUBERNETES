@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-deployment
+  labels:
+    purpose: to-show-deployment
+    app: nginx
+    project: deployment
+spec:
+  # modify deployment according to your case
+  replicas: 3
+  selector:
+    purpose: to-show-deployment
+    app: nginx
+    project: deployment
+  template:
+    metadata:
+      labels:
+        purpose: to-show-deployment
+        app: nginx
+        project: deployment
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
