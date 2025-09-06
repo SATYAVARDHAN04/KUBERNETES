@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pod-configuration
+  labels:
+    purpose: pod-configuration
+
+data:
+  Course: "Devops with aws"
+  duration: "10hrs"

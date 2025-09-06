@@ -107,3 +107,19 @@ kubectl exec -it <pod_name> -c <container_name> -- bash
 ### ANNOTATIONS
 
 ### RESOURCE LIMITING
+
+To know how much memory is used by each pod
+```bash
+kubectl top pods
+```
+
+### ENV VARIABLES
+
+Enter into the container and check for env variables
+
+```bash
+docker exec -it <container_name> -- bash
+```
+```bash
+env
+```
