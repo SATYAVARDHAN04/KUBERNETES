@@ -160,4 +160,24 @@ kubectl describe svc <service_name> -o wide
 **SOME IMPORTANT POINTS REGARDING SERVICES**
 1. When you are creating a Cluster IP service you cannot access the application via an externally it is only used for communication between pods internally
 2. When you are creating a Node Port service you can access the point externally via internet only if the port number is configured in the security group of the worker nodes
-3. When you are creating a Load Balancer service the configuration would be automatically set as the requests from the loadbalancer will be accepted by the security group of the worker nodes ans the website can be accessible via DNS name given by the loadbalancer 
+3. When you are creating a Load Balancer service the configuration would be automatically set as the requests from the loadbalancer will be accepted by the security group of the worker nodes ans the website can be accessible via DNS name given by the loadbalancer.
+
+### REPLICA SET
+
+To get the pods
+```bash
+kubectl get pods
+```
+
+### DEPLOYMENT
+
+To get the replica set
+```bash
+kubectl get rs
+```
+
+To get the pods inside the replica set
+```bash
+kubectl get pods
+```
+
