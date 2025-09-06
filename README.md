@@ -136,3 +136,19 @@ kubectl get configmap
 ```
 
 *NOTE: when there is any chnage in the configuration we make the necessary changes in the config map file and restart the pod*
+
+
+### SERVICE
+
+To check service have been create or not
+```bash
+kubectl get svc
+```
+
+To check endpoints, ClusterIp
+```bash
+kubectl describe svc <service_name> 
+```
+```bash
+kubectl describe svc <service_name> -o wide
+```
