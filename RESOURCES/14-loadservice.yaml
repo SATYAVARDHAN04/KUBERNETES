@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  nginx-lb-service
+  labels:
+    purpose: showing-project-lb
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: showing-project-lb
+    environment: dev
+    project: roboshop
+  ports:
+  - protocol: TCP
+    port: 80 #service port
+    targetPort: 80 #container port (nginx opens 80 container port)
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: satya-connects-lb
+  labels:
+    purpose: showing-project-lb
+    environment: dev
+    project: roboshop
+
+spec: 
+  containers:
+    - name: nginx
+      image: nginx 
