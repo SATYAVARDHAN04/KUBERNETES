@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name:  nginx-service
   labels:
-    purpose: showing project
+    purpose: showing-project
 spec:
   selector:
-    purpose: showing project
+    purpose: showing-project
     environment: dev
     project: roboshop
   ports:
@@ -21,7 +21,7 @@ kind: Pod
 metadata:
   name: satya-connects
   labels:
-    purpose: showing project
+    purpose: showing-project
     environment: dev
     project: roboshop
 
