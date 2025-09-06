@@ -145,6 +145,11 @@ To check service have been create or not
 kubectl get svc
 ```
 
+To delete a service we can use
+```bash
+kubectl delete svc <service_name>
+```
+
 To check endpoints, ClusterIp
 ```bash
 kubectl describe svc <service_name> 
