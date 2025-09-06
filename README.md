@@ -102,6 +102,11 @@ To login into a container of a pod having multiple containers
 ```bash
 kubectl exec -it <pod_name> -c <container_name> -- bash
 ```
+
+To check which pod is running on which worker node
+```bash
+kubectl get pods -o wide
+```
 ### LABELS
 
 ### ANNOTATIONS
