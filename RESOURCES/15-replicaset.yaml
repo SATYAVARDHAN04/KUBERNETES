@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: new-replica
+  labels:
+    purpose: to-show-replica
+    app: nginx
+    project: replica
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    purpose: to-show-replica
+    app: nginx
+    project: replica
+  template:
+    metadata:
+      labels:
+        purpose: to-show-replica
+        app: nginx
+        project: replica
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
