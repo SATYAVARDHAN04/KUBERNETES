@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: roboshop_annotations
+  name: roboshop-annotations
   namespace: default
   labels:
     app: appi

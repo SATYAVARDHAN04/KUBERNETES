@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: roboshop_labels
+  name: roboshop-labels
   labels:
     project: satya
     component: dev
