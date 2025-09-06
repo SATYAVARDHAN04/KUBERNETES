@@ -43,7 +43,7 @@ kubectl version
 eksctl create cluster --config-file=eks.yaml
 ```
 ```bash
-eksctl delet cluster --config-file=eks.yaml
+eksctl delete cluster --config-file=eks.yaml
 ```
 
 ## SHOW WORKER NODES IN A WORKSTATION
@@ -152,3 +152,7 @@ kubectl describe svc <service_name>
 ```bash
 kubectl describe svc <service_name> -o wide
 ```
+**SOME IMPORTANT POINTS REGARDING SERVICES**
+1. When you are creating a Cluster IP service you cannot access the application via an externally it is only used for communication between pods internally
+2. When you are creating a Node Port service you can access the point externally via internet only if the port number is configured in the security group of the worker nodes
+3. When you are creating a Load Balancer service the configuration would be automatically set as the requests from the loadbalancer will be accepted by the security group of the worker nodes ans the website can be accessible via DNS name given by the loadbalancer 
