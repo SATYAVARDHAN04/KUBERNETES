@@ -123,3 +123,11 @@ docker exec -it <container_name> -- bash
 ```bash
 env
 ```
+
+To check whether the **config map** is created and running
+
+```bash
+kubectl get configmap
+```
+
+*NOTE: when there is any chnage in the configuration we make the necessary changes in the config map file and restart the pod*
