@@ -102,3 +102,8 @@ To login into a container of a pod having multiple containers
 ```bash
 kubectl exec -it <pod_name> -c <container_name> -- bash
 ```
+### LABELS
+
+### ANNOTATIONS
+
+### RESOURCE LIMITING
