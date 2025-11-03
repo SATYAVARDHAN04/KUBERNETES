@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: npserviceexample
+  labels:
+    purpose: npnewserviceexample
+spec:
+  type: NodePort
+  selector:
+    name: npexampleservice
+    tier: backend
+    reason: productdisplay
+  port:
+    - protocol: TCP
+      port: 80
+      targetport: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podendpoint
+  labels:
+    name: npexampleservice
+    tier: backend
+    reason: productdisplay
+spec:
+  containers:
+    - name: nginx
+      image: nginx 
