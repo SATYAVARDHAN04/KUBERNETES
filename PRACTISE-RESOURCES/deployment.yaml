@@ -1,0 +1,25 @@
+apiVersion: app/v1
+kind: Deployment
+metadata: 
+  name: newreplicaset
+  labels:
+    purpose: demoshowing
+    tier: apptier
+  
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      purpose: demoshowing
+      tier: apptier
+      
+  template:
+    metadata:
+      labels:
+        purpose: demoshowing
+        tier: apptier
+      spec:
+        containers:
+          - name: nginx
+            image: nginx
