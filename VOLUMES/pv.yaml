@@ -13,9 +13,9 @@ spec:
     volumeHandle: vol-0a32fe54a45fc161d
 ---
 apiVersion: v1
-kind: ebs-static
+kind: PersistentVolumeClaim
 metadata:
-  name: ebs-claim
+  name: ebs-static
 spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
   volumeName: ebs-static
