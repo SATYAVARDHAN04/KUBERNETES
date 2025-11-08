@@ -30,7 +30,7 @@ kind: Pod
 metadata:
   name: nginxapp
 spec:
-  nodeSelectors:
+  nodeSelector:
     topology.kubernetes.io/zone=us-east-1b
   containers:
   - name: nginx
