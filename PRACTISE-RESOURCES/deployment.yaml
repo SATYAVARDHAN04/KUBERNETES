@@ -3,23 +3,43 @@ kind: Deployment
 metadata: 
   name: newdeployment
   labels:
-    purpose: demoshowing
-    tier: apptier
+    name: npexampleservice
+    tier: backend
+    reason: productdisplay
   
 spec:
   replicas: 3
 
   selector:
     matchLabels:
-      purpose: demoshowing
-      tier: apptier
+      name: npexampleservice
+      tier: backend
+      reason: productdisplay
       
   template:
     metadata:
       labels:
-        purpose: demoshowing
-        tier: apptier
+        name: npexampleservice
+        tier: backend
+        reason: productdisplay
       spec:
         containers:
           - name: nginx
             image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: npserviceexample
+  labels:
+    purpose: npnewserviceexample
+spec:
+  type: LoadBalancer
+  selector:
+    name: npexampleservice
+    tier: backend
+    reason: productdisplay
+  port:
+    - protocol: TCP
+      port: 80
+      targetport: 80
