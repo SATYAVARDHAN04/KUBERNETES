@@ -33,7 +33,7 @@ metadata:
   labels:
     purpose: npnewserviceexample
 spec:
-  type: LoadBalancer
+  clusterIP: none
   selector:
     name: npexampleservice
     tier: backend
@@ -42,4 +42,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  clusterIP: none
