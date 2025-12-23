@@ -175,9 +175,17 @@ To get the replica set
 ```bash
 kubectl get rs
 ```
-
 To get the pods inside the replica set
 ```bash
 kubectl get pods
 ```
+
+---
+## VOLUMES
+
+Since nodes and pods are ephermal it is not recommended to store data in them so we use the concept of volumes like AWS EBS, AWS EFC to store data. We us PVC,PC AND SC wrapper classes for creation,delection and manipulation of storage.
+
+There are 2 types of storage provisioning
+1. Static provisioning
+2. Dynamic Provisioning
 
