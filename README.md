@@ -183,9 +183,12 @@ kubectl get pods
 ---
 ## VOLUMES
 
-Since nodes and pods are ephermal it is not recommended to store data in them so we use the concept of volumes like AWS EBS, AWS EFC to store data. We us PVC,PC AND SC wrapper classes for creation,delection and manipulation of storage.
+Since nodes and pods are ephermal it is not recommended to store data in them so we use the concept of volumes like AWS EBS, AWS EFC to store data. We us PVC,PV and SC wrapper classes for creation,delection and manipulation of storage.
 
 There are 2 types of storage provisioning
 1. Static provisioning
 2. Dynamic Provisioning
+
+EBS Static Provisioning
+
 
