@@ -189,6 +189,15 @@ There are 2 types of storage provisioning
 1. Static provisioning
 2. Dynamic Provisioning
 
-EBS Static Provisioning
+### EBS Static Provisioning
+
+Steps for Provisioning
+1. Create a EBS volumes 
+2. Install the required **EBS CSI** drivers
+```bash
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.24"
+```  
+3. Allow the IAM policy **AmazonEBSCSIDriverPolicy** for the nodes to connect to the EBS volumes
+4. Attach PVC to PV 
 
 
