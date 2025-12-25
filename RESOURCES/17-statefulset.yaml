@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: nginx-svc-headless
   labels:
-    purpose: statefulset
+    purpose: efsdynamicdemo
     project: roboshop
 spec:
   ports:
@@ -11,7 +11,7 @@ spec:
       name: web
   clusterIP: None
   selector:
-    purpose: statefulset
+    purpose: efsdynamicdemo
     project: roboshop
 ---
 apiVersion: v1
@@ -19,14 +19,14 @@ kind: Service
 metadata:
   name: nginx-svc-normal
   labels:
-    purpose: statefulset
+    purpose: efsdynamicdemo
     project: roboshop
 spec:
   ports:
     - port: 80
       name: web
   selector:
-    purpose: statefulset
+    purpose: efsdynamicdemo
     project: roboshop
 ---
 apiVersion: apps/v1
@@ -36,14 +36,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      purpose: statefulset
+      purpose: efsdynamicdemo
       project: roboshop # has to match .spec.template.metadata.labels
   serviceName: "nginx-svc-headless" # this should be headless service
   replicas: 3 # by default is 1
   template:
     metadata:
       labels:
-        purpose: statefulset
+        purpose: efsdynamicdemo
         project: roboshop # has to match .spec.selector.matchLabels
     spec:
       containers:
@@ -56,6 +56,9 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: www
+        labels:
+          purpose: efsdynamicdemo
+          project: roboshop
       spec:
         accessModes: ["ReadWriteOnce"]
         storageClassName: "roboshop-efs"
