@@ -6,13 +6,13 @@ metadata:
     purpose: efsdynamicdemo
     project: roboshop
 spec:
-  ports:
-    - port: 80
-      name: web
-  clusterIP: None
+  clusterIP: None # headless service (REQUIRED for StatefulSet)
   selector:
     purpose: efsdynamicdemo
     project: roboshop
+  ports:
+    - port: 80
+      name: web
 ---
 apiVersion: v1
 kind: Service
@@ -22,37 +22,38 @@ metadata:
     purpose: efsdynamicdemo
     project: roboshop
 spec:
-  ports:
-    - port: 80
-      name: web
   selector:
     purpose: efsdynamicdemo
     project: roboshop
+  ports:
+    - port: 80
+      name: web
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: nginx-statefulset
 spec:
+  serviceName: nginx-svc-headless # MUST point to headless service
+  replicas: 3
   selector:
     matchLabels:
       purpose: efsdynamicdemo
-      project: roboshop # has to match .spec.template.metadata.labels
-  serviceName: "nginx-svc-headless" # this should be headless service
-  replicas: 3 # by default is 1
+      project: roboshop
   template:
     metadata:
       labels:
         purpose: efsdynamicdemo
-        project: roboshop # has to match .spec.selector.matchLabels
+        project: roboshop
     spec:
       containers:
         - name: nginx
           image: nginx
+          ports:
+            - containerPort: 80
           volumeMounts:
             - name: www
               mountPath: /usr/share/nginx/html
-  # This is nothing but PVC, you can directly create here
   volumeClaimTemplates:
     - metadata:
         name: www
@@ -60,8 +61,9 @@ spec:
           purpose: efsdynamicdemo
           project: roboshop
       spec:
-        accessModes: ["ReadWriteOnce"]
-        storageClassName: "roboshop-efs"
+        accessModes:
+          - ReadWriteMany # ✅ FIXED (EFS requires RWX)
+        storageClassName: roboshop-efs
         resources:
           requests:
-            storage: 2Gi
+            storage: 2Gi # required but not enforced by EFS
